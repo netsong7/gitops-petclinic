@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: petclinic-service
+spec:
+  selector:
+    app: petclinic
+  ports:
+    - protocol: TCP
+      port: 80        # 클러스터 내부에서 서비스 포트
+      targetPort: 80  # nginx 컨테이너 포트
+  type: NodePort      # 또는 ClusterIP (ALB Ingress가 외부 공개 담당)
